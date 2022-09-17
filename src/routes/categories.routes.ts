@@ -10,6 +10,6 @@ categoriesRoutes.post("/", (req, res) => {
   const category: Category = new Category();
   Object.assign(category, { name, description, created_at: new Date() });
   categories.push(category);
-  return res.status(201).send();
+  return res.status(201).json({ category });
 });
 export { categoriesRoutes };
