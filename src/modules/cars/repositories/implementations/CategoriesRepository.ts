@@ -1,6 +1,6 @@
 /* eslint-disable no-use-before-define */
-import { Category } from "../model/Category";
-import { ICategoriesRepository } from "./ICategoriesRepository";
+import { Category } from "../../model/Category";
+import { ICategoriesRepository } from "../ICategoriesRepository";
 
 interface ICreateCategoryDTO {
   name: string;
