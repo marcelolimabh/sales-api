@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import { Category } from "../model/Category";
 import { ICategoriesRepository } from "./ICategoriesRepository";
 
@@ -9,8 +10,17 @@ interface ICreateCategoryDTO {
 class CategoriesRepository implements ICategoriesRepository {
   private categories: Category[];
 
-  constructor() {
+  private static INSTANCE: CategoriesRepository;
+
+  private constructor() {
     this.categories = [];
+  }
+
+  public static getInstacnce(): CategoriesRepository {
+    if (!CategoriesRepository.INSTANCE) {
+      CategoriesRepository.INSTANCE = new CategoriesRepository();
+    }
+    return CategoriesRepository.INSTANCE;
   }
 
   create({ name, description }: ICreateCategoryDTO): void {
