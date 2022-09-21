@@ -19,6 +19,7 @@ categoriesRoutes.get("/", (req, res) => {
 });
 
 categoriesRoutes.post("/import", upload.single("file"), (req, res) => {
+  console.log("testando docker");
   return importCategoryController.handle(req, res);
 });
 
